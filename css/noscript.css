@@ -1,0 +1,4 @@
+body{padding-top:150px}
+header.main {position: absolute;top:50px;}
+.gallery {opacity: 1}
+.noscript{position: fixed;z-index:100000;top:0;left:0;right:0;line-height:46px;text-align:center;border-bottom:solid 2px #F00;font-size:20px;background:#FDD;color:#D00;padding:0 20px}
