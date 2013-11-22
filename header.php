@@ -24,8 +24,9 @@
 	<meta name="contact" content="contact@pcazorla.com" />
 	<meta name="copyright" content="Designed by Pablo Cazorla under licence Creative Commons - 2013." />
 	
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>	
-	<link href="<?php bloginfo('template_url'); ?>/style.min.php" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans' rel='stylesheet' type='text/css'>
+	<!--<link href="<?php bloginfo('template_url'); ?>/style.min.php" rel="stylesheet" type="text/css" />-->
+	<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
@@ -47,21 +48,10 @@
 			templateURL = '<?php bloginfo('template_url'); ?>',
 			portfolioGrid = false;		
 	</script>
-&nbsp;
 	<header class="box main">
 		<div class="wrap clearfix">
-			<a href="<?php bloginfo( 'url' ); ?>" class="logo">
-				<img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Pablo Cazorla" title="Pablo Cazorla"/>
-			</a>
-			<a id="menu-launcher" href="">
-				<span></span><span></span><span></span>
-			</a>		
-			<div id="side-act">
-				<div id="side-act-content">
-					<menu class="main">
-						<?php  wp_nav_menu();?>
-					</menu>
-				</div>				
-			</div>			
+			<menu>		
+				<?php  wp_nav_menu();?>
+			</menu>					
 		</div>
 	</header>
