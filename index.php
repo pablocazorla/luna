@@ -72,11 +72,10 @@
 		</div>
 		<?php endwhile;
 		wp_reset_query();
-		?>
-		
+		?>		
 	</section>
 
-	</article>
+</article>
 <div class="item-back item-show" style="display:none">
 	<div id="item-dimmer" class="close-work"></div>
 	<div class="item-header">
