@@ -46,18 +46,19 @@
 	<script>
 		var server = '<?php echo $_SERVER[HTTP_HOST]; ?>',
 			templateURL = '<?php bloginfo('template_url'); ?>',
-			portfolioGrid = false;		
+			pageID = "common";
 	</script>
-	<header class="main">
-		<div class="wrap clearfix">
-			<menu>		
-				<?php  wp_nav_menu();?>
-			</menu>
-			<nav>
-				<a class="email" href="mailto:contact@pcazorla.com" title="E-mail me to contact@pcazorla.com" target="_blank">contact@pcazorla.com</a>				
-				<a class="rss" href="<?php bloginfo('url'); ?>/rss" title="RSS feeds" target="_blank">RSS feeds</a>
-				<a class="twitter" href="http://bit.ly/twitter-pcazorla" title="Follow me on Twitter" target="_blank">Twitter</a>
-				<a class="googleplus" href="http://bit.ly/google-pcazorla" title="Follow me on Google+" target="_blank">Follow me on Google+</a>
-			</nav>				
-		</div>
-	</header>
+	<div id="page">
+		<header class="main">
+			<div class="wrap clearfix">
+				<menu>		
+					<?php  wp_nav_menu();?>
+				</menu>
+				<nav>
+					<a class="email" href="mailto:contact@pcazorla.com" title="E-mail me to contact@pcazorla.com" target="_blank">contact@pcazorla.com</a>				
+					<a class="rss" href="<?php bloginfo('url'); ?>/rss" title="RSS feeds" target="_blank">RSS feeds</a>
+					<a class="twitter" href="http://bit.ly/twitter-pcazorla" title="Follow me on Twitter" target="_blank">Twitter</a>
+					<a class="googleplus" href="http://bit.ly/google-pcazorla" title="Follow me on Google+" target="_blank">Follow me on Google+</a>
+				</nav>				
+			</div>
+		</header>

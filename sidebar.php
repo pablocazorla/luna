@@ -74,7 +74,7 @@ if ( ! dynamic_sidebar( 'secondary-widget-area' ) ) : ?>
 </li>
 
 <?php endif; // end secondary widget area ?>
-<li class="widget-container"><a href="<?php bloginfo('rss2_url'); ?>" class="rss-link">RSS feed</a></li>
+<!--li class="widget-container"><a href="<?php bloginfo('rss2_url'); ?>" class="rss-link">RSS feed</a></li-->
 </ul>
 
 </div><!-- #secondary .widget-area -->

@@ -206,7 +206,7 @@ footer.main{
 
 /* Sidebar */
 .widget-container,
-.menu-secondary-container{padding:0 0 20px;margin:0 0 15px;border-bottom: 1px dotted #999;}
+.menu-secondary-container{padding:0 0 20px;margin:0 0 15px;border-bottom: 1px solid #DDD;}
 
 #searchform {
 	position:relative;padding-right:40px;border:solid 1px #999;overflow: hidden;background-color:transparent;

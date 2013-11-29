@@ -1,7 +1,6 @@
 <?php get_header(); ?>
-<script>portfolioGrid = true;</script>
 <?php $cat_name = single_cat_title('',false);?>
-
+<script>pageID = "portfolio-list";</script>
 <article id="portfolio">
 	<header class="wrap">
 		<h1><?php echo $cat_name; ?></h1>		
@@ -55,17 +54,18 @@
 	<?php endif; ?>	
 </article>
 
-<div class="item-back item-show" style="display:none">
-	<div id="item-dimmer" class="close-work"></div>
-	<div class="item-header">
-		<div class="item-header-content wrap">
-			<span class="close-work x box"></span>
+<div id="modal-portfolio">
+	<div class="dimmer close"></div>
+	<div id="modal-portfolio-content">
+		<div class="loading">
+			<img src="<?php bloginfo('template_url'); ?>/img/loading.gif" width="48" height="38"/><br>
+			Loading
 		</div>
-	</div>
-	<div class="item wrap">	
-		<div id="item-content" class="content-portfolio box">
-			<div class="loading">Loading...</div>
+		<div class="close closebutton"></div>
+		<div id="work">
+			Prueba
 		</div>
-	</div>
+	</div>	
 </div>
+
 <?php get_footer(); ?>

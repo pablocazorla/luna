@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<script>portfolioGrid = true;</script>
+<script>pageID = "home";</script>
 <article id="home">
 	<section class="home-presentation wrap">
 		<img src="<?php bloginfo('template_url'); ?>/img/home/3.jpg" id="home-img3" class="home-img"/>
@@ -49,7 +49,7 @@
 		<h1>Last in <a href="<?php echo esc_url( $category_linkb ); ?>">Blog</a></h1>				
 		<?php query_posts( array( 'category_name' => 'Blog', 'posts_per_page' => 2));
 		while ( have_posts() ) : the_post();?>
-		<div class="post intro clearfix" id="post-<?php the_ID();?>">
+		<div class="post-in-list clearfix" id="post-<?php the_ID();?>">
 			<a href="<?php the_permalink(); ?>" class="thumbnail-link">				
 			<?php if(has_post_thumbnail()){
 				the_post_thumbnail('thumbnail');
@@ -57,7 +57,7 @@
 				<img src="<?php bloginfo('template_url'); ?>/img/default-blog-thumbnail.jpg" />
 			<?php } ?>
 			</a>			
-			<div class="summary">
+			<div class="summary content">
 				<h2>
 					<a href="<?php the_permalink(); ?>">					
 						<?php the_title(); ?>
