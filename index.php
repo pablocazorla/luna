@@ -49,44 +49,41 @@
 		<h1>Last in <a href="<?php echo esc_url( $category_linkb ); ?>">Blog</a></h1>				
 		<?php query_posts( array( 'category_name' => 'Blog', 'posts_per_page' => 2));
 		while ( have_posts() ) : the_post();?>
+		
 		<div class="post-in-list clearfix" id="post-<?php the_ID();?>">
-			<a href="<?php the_permalink(); ?>" class="thumbnail-link">				
-			<?php if(has_post_thumbnail()){
-				the_post_thumbnail('thumbnail');
-			}else{ ?>
-				<img src="<?php bloginfo('template_url'); ?>/img/default-blog-thumbnail.jpg" />
-			<?php } ?>
-			</a>			
-			<div class="summary content">
-				<h2>
-					<a href="<?php the_permalink(); ?>">					
-						<?php the_title(); ?>
-					</a>
-				</h2>
-				<div class="category">
-					Category: <?php the_category(', '); ?>					
+				<a href="<?php the_permalink(); ?>" class="thumbnail-link">				
+				<?php if(has_post_thumbnail()){
+					the_post_thumbnail('thumbnail');
+				}else{ ?>
+					<img src="<?php bloginfo('template_url'); ?>/img/default-blog-thumbnail.jpg" />
+				<?php } ?>
+				</a>			
+				<div class="summary">
+					<h2>
+						<a href="<?php the_permalink(); ?>">					
+							<?php the_title(); ?>
+						</a>
+					</h2>
+					<div class="category">
+						Category: <?php the_category(', '); ?>					
+					</div>
+					<?php the_excerpt(); ?>
+					<p><a href="<?php the_permalink(); ?>">Read more &gt;</a></p>
 				</div>
-				<?php the_excerpt(); ?>
-				<p><a href="<?php the_permalink(); ?>">Read more &gt;</a></p>
 			</div>
-		</div>
 		<?php endwhile;
 		wp_reset_query();
 		?>		
 	</section>
-
 </article>
-<div class="item-back item-show" style="display:none">
-	<div id="item-dimmer" class="close-work"></div>
-	<div class="item-header">
-		<div class="item-header-content wrap">
-			<span class="close-work x box"></span>
+<div id="modal-portfolio">
+	<div class="dimmer close"></div>
+	<div id="modal-portfolio-content">
+		<div class="loading">
+			<img src="<?php bloginfo('template_url'); ?>/img/loading.gif" width="48" height="38"/><br>Loading
 		</div>
-	</div>
-	<div class="item wrap">	
-		<div id="item-content" class="content-portfolio box">
-			<div class="loading">Loading...</div>
-		</div>
-	</div>
+		<div class="close closebutton"></div>
+		<div id="work"></div>
+	</div>	
 </div>
 <?php get_footer(); ?>

@@ -28,7 +28,7 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/default-blog-thumbnail.jpg" />
 				<?php } ?>
 				</a>			
-				<div class="summary content">
+				<div class="summary">
 					<h2>
 						<a href="<?php the_permalink(); ?>">					
 							<?php the_title(); ?>
@@ -43,7 +43,9 @@
 			</div>
 			<?php endwhile; ?>
 			<?php else :?>
-			<h2>Sorry, posts not found!</h2>
+				<div class="post-in-list">
+					<h2>Sorry, posts not found!</h2>
+				</div>
 			<?php endif; ?>
 			
 			<?php if (show_posts_nav()) : ?>

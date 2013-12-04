@@ -52,21 +52,7 @@ hr{
 	border:none;border-bottom:solid 1px #ccc;background:transparent;margin-bottom:20px
 }
 iframe,video,audio{display:block;margin:10px auto;border:solid 1px #DDD}
-/* Form */
-fieldset{display:block;margin-bottom:20px;}
-label{min-width:140px;text-align:right;display:block;float:left;border:solid 1px transparent;}
 
-label,input{height:30px;}
-label,input,textarea{padding:0 5px;line-height:30px;}
-input,textarea{width:60%;resize: none;border:solid 1px #CCC;
--webkit-box-shadow: none;-webkit-border-radius:3px;
--moz-box-shadow: none;-moz-border-radius:3px;
-box-shadow: none;border-radius:3px;}
-
-::-webkit-input-placeholder { color:#999; }
-::-moz-placeholder { color:#999; } /* firefox 19+ */
-:-ms-input-placeholder { color:#999; } /* ie */
-input:-moz-placeholder { color:#999; }
 
 
 /* COMMON **************************************************************************/
@@ -301,6 +287,7 @@ color:#777;
 .post .wp-caption{width:100% !important;max-width:100%;height:auto !important;display:block;}
 .post .wp-caption{margin-bottom:20px;}
 .post .wp-caption p{margin-bottom:0;font-size: 12px;text-align: center;color:#777;}
+
 .post table{border-left:solid 1px #CCC;border-bottom:solid 1px #CCC;width:100%;text-align:left;font-size: 16px;margin-bottom:32px;}
 
 .post table thead{background: #E0E0E0;font-weight:700}

@@ -17,7 +17,7 @@
 					<img src="<?php bloginfo('template_url'); ?>/img/default-blog-thumbnail.jpg" />
 				<?php } ?>
 				</a>			
-				<div class="summary content">
+				<div class="summary">
 					<h2>
 						<a href="<?php the_permalink(); ?>">					
 							<?php the_title(); ?>
@@ -32,9 +32,9 @@
 			</div>
 			<?php endwhile; ?>
 			<?php else :?>
-				<div class="post-in-list">
-					<h2>Sorry, nothing found related to <i><?php echo $s; ?></i>.</h2>
-				</div>		
+			<div class="post-in-list">
+				<h2>Sorry, nothing found related to <i><?php echo $s; ?></i>.</h2>
+			</div>	
 			<?php endif; ?>
 			
 			<?php if (show_posts_nav()) : ?>

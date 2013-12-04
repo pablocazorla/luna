@@ -51,7 +51,9 @@
 	<div id="page">
 		<header class="main">
 			<div class="wrap clearfix">
-				<menu>		
+				<menu>
+					<a href="<?php bloginfo('url'); ?>" class="responsive-logo">Pablo Cazorla</a>
+					<span class="responsive-menu-trigger"></span>
 					<?php  wp_nav_menu();?>
 				</menu>
 				<nav>

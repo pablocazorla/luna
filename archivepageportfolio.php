@@ -2,7 +2,7 @@
 <?php $cat_name = single_cat_title('',false);?>
 <script>pageID = "portfolio-list";</script>
 <article id="portfolio">
-	<header class="wrap">
+	<header class="wrap clearfix">
 		<h1><?php echo $cat_name; ?></h1>		
 		<?php 
 		wp_nav_menu(array('menu' => 'Tertiary' ));		
@@ -53,19 +53,14 @@
 	</nav>
 	<?php endif; ?>	
 </article>
-
 <div id="modal-portfolio">
 	<div class="dimmer close"></div>
 	<div id="modal-portfolio-content">
 		<div class="loading">
-			<img src="<?php bloginfo('template_url'); ?>/img/loading.gif" width="48" height="38"/><br>
-			Loading
+			<img src="<?php bloginfo('template_url'); ?>/img/loading.gif" width="48" height="38"/><br>Loading
 		</div>
 		<div class="close closebutton"></div>
-		<div id="work">
-			Prueba
-		</div>
+		<div id="work"></div>
 	</div>	
 </div>
-
 <?php get_footer(); ?>

@@ -35,7 +35,7 @@ var cazu = function(){
 				}
 				toggleFloating();
 				prev = current;
-			};
+			}		
 			
 		// exec
 		toggleUp();
@@ -45,6 +45,23 @@ var cazu = function(){
 		setTimeout(function(){
 			$header.addClass('animated');
 		},400);
+	},
+	
+	menuResponsive = function(){
+		var openMenu = false,
+		close = function(){
+			$header.removeClass('open-menu');
+			openMenu = false;
+		};
+		$('.responsive-menu-trigger').click(function(){
+			if(!openMenu){
+				$header.addClass('open-menu');
+				openMenu = true;
+			}else{
+				close();
+			}
+		});
+		$window.scroll(close);	
 	},
 	// Portfolio
 	portfolio = function(){
@@ -80,10 +97,13 @@ var cazu = function(){
 						},
 						error : function(){
 							// On error, redirect to urlPost
-							//window.location.href = urlPost;						
+							window.location.href = urlPost;						
 						},
 						complete : function(){
-							//self.preHighlight().validateForm();
+							// Like blog-post
+							pre_Paint();
+							wpCaptionCorrection();
+							validateForm();
 	
 							$.getScript('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4d9270a3495656e9',function(){
 								addthis.toolbox(".addthis_toolbox");
@@ -121,6 +141,102 @@ var cazu = function(){
 	        hideWork();     
 	        return false;
 	    });
+	},
+	
+	// Blog Post
+	wpCaptionCorrection = function(){
+		$('.wp-caption').each(function(){
+			var $this = $(this),
+				w = $this.width();			
+			$this.css({
+				'max-width': w +'px',
+				'width':'auto'
+			});
+		});		
+		$('img.size-thumbnail').parent('.wp-caption').addClass('thumbnail');
+	},
+	pre_Paint = function(){
+		var $pre = $('pre').not('.no-print').addClass('prettyprint');
+		$('pre.html').each(function(){
+			$(this).text($(this).html());
+		});
+		
+		if($pre.length > 0){
+			$.getScript('//google-code-prettify.googlecode.com/svn/loader/run_prettify.js');
+		}
+	},
+	
+	sidebarScroll = function(){
+		var $sidebar = $('.sidebar'),
+			$sidebarContent = $('#sidebar-content'),
+			dY = 10,
+			minTop = parseInt($sidebar.css('top')),
+			offTop = $sidebar.offset().top,			
+			current = 0,
+			prev = 0,
+			posY = 0,
+			moveSidebar = function(){				
+				current = $window.scrollTop();				
+				if(current != prev){
+					if(current < prev){$sidebarContent.css('top','60px');}else{$sidebarContent.css('top','0');}
+					posY = current - offTop + minTop + dY;
+					if(current < offTop){posY = minTop;$sidebarContent.css('top','0');}
+					$sidebar.css({'top':  posY+ 'px'});
+				}
+				prev = current;
+			}
+			
+		moveSidebar();
+		$window.scroll(moveSidebar);	
+	},
+	
+	validateForm = function(){
+		var $f = $('fieldset.validate'),
+			valid = true,
+			validate = function(){
+				valid = true;
+				$f.each(function(){
+					var $this = $(this),
+						$input = $this.find('input,textarea'),
+						min = parseInt($this.attr('min')) || 0,
+						val = $input.val(),
+						emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+						isEmail = false;
+					if($this.hasClass('email')){
+						isEmail = true;
+					}	
+					
+					if(val.length < min){
+						valid = false;
+						$this.addClass('error');
+						$input.focus();
+					}else{					
+						$this.removeClass('error');
+					}
+					if(isEmail){
+						if(val.search(emailRegEx) == -1){
+							valid = false;
+							$this.addClass('error');
+							$input.focus();
+						}else{
+							$this.removeClass('error');
+						}				
+					}			
+				});
+			},
+			clearFiels = function(){				
+				$f.removeClass('error').find('input,textarea').val('');
+				$f.eq(0).find('input').focus();				
+			};
+			
+		$('#submit').click(function(e){
+			validate();
+			if(!valid){e.preventDefault();} 
+		});
+		$('#clearFields').click(function(e){
+			e.preventDefault();
+			clearFiels();
+		});
 	}
 	
 	
@@ -129,7 +245,13 @@ var cazu = function(){
 	// Commons
 	$.ajaxSetup({cache:false});
 	header();
+	menuResponsive();
 	
+	// Home home
+	
+	if(pageID == 'home'){
+		portfolioWork();		
+	}
 	// Portfolio List
 	if(pageID == 'portfolio-list'){
 		portfolio();
@@ -137,7 +259,18 @@ var cazu = function(){
 	}
 	// Blog
 	if(pageID == 'blog-list' || pageID == 'blog-post' || pageID == 'search-list'){
-		$('#s').val('').attr('placeholder','Search');
+		var $sForm = $('#searchform');
+		$('#s').val('').attr('placeholder','Search').focus(function(){
+			$sForm.addClass('focus');
+		}).blur(function(){
+			$sForm.removeClass('focus');
+		});
+		sidebarScroll();
+	}
+	if(pageID == 'blog-post' || pageID == 'work-post'){
+		pre_Paint();
+		wpCaptionCorrection();				
+		validateForm();		
 	}
 	
 	
