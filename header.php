@@ -48,11 +48,11 @@
 			templateURL = '<?php bloginfo('template_url'); ?>',
 			pageID = "common";
 	</script>
-	<div id="page">
+	<div id="page" <?php if ( is_home() ) { echo 'class="homepage"';} ?>>
 		<header class="main">
 			<div class="wrap clearfix">
-				<menu>
-					<a href="<?php bloginfo('url'); ?>" class="responsive-logo">Pablo Cazorla</a>
+				<a href="<?php bloginfo('url'); ?>" class="logo" title="Pablo Cazorla, illustrator and concept artist"><span class="icn"></span><span class="tt">Pablo Cazorla, illustrator and concept artist</span></a>
+				<menu>					
 					<span class="responsive-menu-trigger"></span>
 					<?php  wp_nav_menu();?>
 				</menu>
