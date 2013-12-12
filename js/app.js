@@ -237,7 +237,12 @@ var cazu = function(){
 			e.preventDefault();
 			clearFiels();
 		});
-	}
+	},
+	wipSlide = function(){
+		if($('.wipSlider').length > 0){
+			$.getScript(templateURL+'/js/jquery.wipSlider.min.js',function(){$('.wipSlider').wipSlider();});
+		}
+	};
 	
 	
 		
@@ -270,7 +275,8 @@ var cazu = function(){
 	if(pageID == 'blog-post' || pageID == 'work-post'){
 		pre_Paint();
 		wpCaptionCorrection();				
-		validateForm();		
+		validateForm();
+		wipSlide();
 	}
 	
 	

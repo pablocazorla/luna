@@ -38,7 +38,7 @@
 						Category: <?php the_category(', '); ?>					
 					</div>
 					<?php the_excerpt(); ?>
-					<p><a href="<?php the_permalink(); ?>">Read more &gt;</a></p>
+					<p><a href="<?php the_permalink(); ?>">Read more &raquo;</a></p>
 				</div>
 			</div>
 			<?php endwhile; ?>

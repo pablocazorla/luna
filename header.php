@@ -22,11 +22,10 @@
 	<meta http-equiv="content-language" content="en-us" />
 	<meta name="author" content="Pablo Cazorla" />
 	<meta name="contact" content="contact@pcazorla.com" />
-	<meta name="copyright" content="Designed by Pablo Cazorla under licence Creative Commons - 2013." />
+	<meta name="copyright" content="Designed by Pablo Cazorla under licence Creative Commons - <?php echo date('Y'); ?>." />
 	
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans' rel='stylesheet' type='text/css'>
-	<!--<link href="<?php bloginfo('template_url'); ?>/style.min.php" rel="stylesheet" type="text/css" />-->
-	<link href="<?php bloginfo('template_url'); ?>/style.css" rel="stylesheet" type="text/css" />
+	<link href="<?php bloginfo('template_url'); ?>/style.min.php" rel="stylesheet" type="text/css" />
 	
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
@@ -51,7 +50,7 @@
 	<div id="page" <?php if ( is_home() ) { echo 'class="homepage"';} ?>>
 		<header class="main">
 			<div class="wrap clearfix">
-				<a href="<?php bloginfo('url'); ?>" class="logo" title="Pablo Cazorla, illustrator and concept artist"><span class="icn"></span><span class="tt">Pablo Cazorla, illustrator and concept artist</span></a>
+				<a href="<?php bloginfo('url'); ?>" class="logo"><span class="icn"></span><span class="tt">Pablo Cazorla, illustrator and concept artist</span></a>
 				<menu>					
 					<span class="responsive-menu-trigger"></span>
 					<?php  wp_nav_menu();?>

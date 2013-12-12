@@ -1,4 +1,0 @@
-<?php if(extension_loaded('zlib')){ob_start('ob_gzhandler');} header("Content-type: text/javascript"); ?>
-(function(d){d.fn.Bubble=function(m){var b=d.extend({attr:"rel",offsetTop:0,distanceY:10,duration:250},m);return this.each(function(){var f=d(this).css("position","relative").attr("title",""),h=f.height()+b.offsetTop,k=h+b.distanceY,c=d('<div class="bubble-banner"><span></span></div>').css("bottom",k+"px"),a=!1,e=!1,g=!1,l=function(){g=!1;!a&&e&&(a=!0,c.animate({bottom:k+"px",opacity:"0"},b.duration,function(){c.css("display","none");e=a=!1}))};c.append(f.attr(b.attr));f.append(c).hover(function(){g=
-!0;a||e||(a=!0,c.css("display","block").animate({bottom:h+"px",opacity:"1"},b.duration,function(){a=!1;e=!0;g||l()}))},l)})}})(jQuery);
-<?php if(extension_loaded('zlib')){ob_end_flush();}?>
